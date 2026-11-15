@@ -128,7 +128,6 @@ function initSwaraAudio() {
 // Aesthetic Swara Scroll Emitter
 function initSwaraScrollEmitter() {
   const layer = document.getElementById('swaraLayer');
-  const artwork = document.getElementById('fluteAnchor');
 
   window.addEventListener('scroll', () => {
     const currentY = window.pageYOffset;
@@ -137,8 +136,8 @@ function initSwaraScrollEmitter() {
 
     scrollAccumulator += delta;
 
-    // Spawn swara every 80px of scrolling
-    if (scrollAccumulator > 80) {
+    // Spawn swara every 70px of scrolling
+    if (scrollAccumulator > 70) {
       scrollAccumulator = 0;
 
       const swaraObj = SWARA_SCALE[swaraCounter % SWARA_SCALE.length];
@@ -146,17 +145,10 @@ function initSwaraScrollEmitter() {
 
       playFluteTone(swaraObj.freq);
 
-      // Determine anchor origin near the flute artwork
-      let spawnX = window.innerWidth - 180;
-      let spawnY = 220 + ((swaraCounter % 7) * 45);
-
-      if (artwork) {
-        const rect = artwork.getBoundingClientRect();
-        if (rect.width > 0) {
-          spawnX = rect.left + 140 + (Math.random() * 40 - 20);
-          spawnY = Math.max(120, rect.top + 200 + ((swaraCounter % 7) * 45));
-        }
-      }
+      // Spawn origin along the tilted wooden flute in background
+      const progress = (swaraCounter % 8) / 8;
+      const spawnX = window.innerWidth * 0.35 + (progress * window.innerWidth * 0.25) + (Math.random() * 40 - 20);
+      const spawnY = window.innerHeight * 0.25 + (progress * window.innerHeight * 0.45) + (Math.random() * 30 - 15);
 
       spawnSwaraGlyph(layer, swaraObj.note, spawnX, spawnY);
     }
