@@ -1,9 +1,7 @@
 /**
  * Hindraj Mali - Portfolio Script
- * Dynamic Swara Breeze (Sa Re Ga Ma Pa Dha Ni) on Scroll + Flute Synthesizer + GitHub Sync
+ * Dynamic Swara Breeze (Sa Re Ga Ma Pa Dha Ni) on Scroll + Flute Synthesizer
  */
-
-const GITHUB_USERNAME = 'hindraj123';
 
 // Classical Indian 7-Swara Scale frequencies (in Hz)
 const SWARA_SCALE = [
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyrightYear();
   initSwaraScrollEmitter();
   initSwaraAudio();
-  fetchGitHubRepos();
 });
 
 function initCopyrightYear() {
@@ -126,6 +123,7 @@ function initSwaraAudio() {
 }
 
 // Aesthetic Swara Scroll Emitter
+// Spawns glowing swaras out of the tilted bansuri that drift gracefully to the right
 function initSwaraScrollEmitter() {
   const layer = document.getElementById('swaraLayer');
 
@@ -136,8 +134,8 @@ function initSwaraScrollEmitter() {
 
     scrollAccumulator += delta;
 
-    // Spawn swara every 70px of scrolling
-    if (scrollAccumulator > 70) {
+    // Spawn swara every 65px of scroll distance
+    if (scrollAccumulator > 65) {
       scrollAccumulator = 0;
 
       const swaraObj = SWARA_SCALE[swaraCounter % SWARA_SCALE.length];
@@ -145,10 +143,10 @@ function initSwaraScrollEmitter() {
 
       playFluteTone(swaraObj.freq);
 
-      // Spawn origin along the tilted wooden flute in background
+      // Spawn origin along the tilted bansuri diagonal across the background
       const progress = (swaraCounter % 8) / 8;
-      const spawnX = window.innerWidth * 0.35 + (progress * window.innerWidth * 0.25) + (Math.random() * 40 - 20);
-      const spawnY = window.innerHeight * 0.25 + (progress * window.innerHeight * 0.45) + (Math.random() * 30 - 15);
+      const spawnX = window.innerWidth * (0.38 + progress * 0.22) + (Math.random() * 24 - 12);
+      const spawnY = window.innerHeight * (0.20 + progress * 0.52) + (Math.random() * 24 - 12);
 
       spawnSwaraGlyph(layer, swaraObj.note, spawnX, spawnY);
     }
@@ -161,16 +159,16 @@ function spawnSwaraGlyph(layer, swaraText, x, y) {
   const glyph = document.createElement('div');
   glyph.className = 'swara-glyph';
 
-  // 70% chance classical swara letter, 30% musical note symbol
-  const showSymbol = Math.random() > 0.7;
+  // 75% chance classical Indian swara letter (सा, रे, ग, म, प, ध, नि), 25% musical note symbol
+  const showSymbol = Math.random() > 0.75;
   glyph.textContent = showSymbol
     ? MUSICAL_SYMBOLS[Math.floor(Math.random() * MUSICAL_SYMBOLS.length)]
     : swaraText;
 
-  // Aesthetic Peacock-inspired colors: Deep Sapphire, Emerald, Sky Blue, Warm Gold
-  const colors = ['#0284c7', '#0369a1', '#0ea5e9', '#059669', '#d97706'];
+  // Glowing Evening Swara Colors: Warm Gold, Amber, Starlight Cyan, Moonlight Silver
+  const colors = ['#fbbf24', '#f59e0b', '#fef08a', '#38bdf8', '#e0e7ff'];
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = showSymbol ? (18 + Math.random() * 8) : (22 + Math.random() * 12);
+  const size = showSymbol ? (18 + Math.random() * 8) : (24 + Math.random() * 12);
 
   glyph.style.left = `${x}px`;
   glyph.style.top = `${y}px`;
@@ -183,84 +181,4 @@ function spawnSwaraGlyph(layer, swaraText, x, y) {
   setTimeout(() => {
     glyph.remove();
   }, 3800);
-}
-
-// GitHub API: Fetch Repositories
-const LANG_COLORS = {
-  JavaScript: '#f1e05a',
-  TypeScript: '#3178c6',
-  Python: '#3572A5',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  'C++': '#f34b7d',
-  C: '#555555',
-  Rust: '#dea584'
-};
-
-async function fetchGitHubRepos() {
-  const container = document.getElementById('repoList');
-  if (!container) return;
-
-  try {
-    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
-    if (!res.ok) throw new Error(`GitHub API error ${res.status}`);
-
-    const repos = await res.json();
-    if (!Array.isArray(repos) || repos.length === 0) {
-      renderFallback(container);
-      return;
-    }
-
-    container.innerHTML = '';
-    repos.slice(0, 6).forEach(repo => {
-      const card = document.createElement('div');
-      card.className = 'repo-item';
-
-      const lang = repo.language || 'Code';
-      const langColor = LANG_COLORS[lang] || '#0284c7';
-      const desc = repo.description || 'Public engineering repository and algorithmic source code.';
-      const stars = repo.stargazers_count || 0;
-      const forks = repo.forks_count || 0;
-
-      card.innerHTML = `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
-          ${escapeHtml(repo.name)}
-        </a>
-        <p class="repo-description">${escapeHtml(desc)}</p>
-        <div class="repo-footer">
-          <span style="display:flex; align-items:center; gap:0.35rem;">
-            <span class="repo-lang-dot" style="background-color: ${langColor};"></span>
-            ${escapeHtml(lang)}
-          </span>
-          ${stars > 0 ? `<span>★ ${stars}</span>` : ''}
-          ${forks > 0 ? `<span>⑂ ${forks}</span>` : ''}
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-  } catch (err) {
-    renderFallback(container);
-  }
-}
-
-function renderFallback(container) {
-  container.innerHTML = `
-    <div class="repo-item">
-      <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
-        Explore Repositories on GitHub
-      </a>
-      <p class="repo-description">Browse through all active repositories, robotics code, and open-source contributions directly on Hindraj's GitHub profile.</p>
-      <div class="repo-footer">
-        <span>@${GITHUB_USERNAME}</span>
-      </div>
-    </div>
-  `;
-}
-
-function escapeHtml(str) {
-  if (!str) return '';
-  return String(str).replace(/[&<>"']/g, m => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-  }[m]));
 }
