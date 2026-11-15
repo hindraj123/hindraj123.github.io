@@ -3,493 +3,386 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hindraj Mali - Electrical Engineering undergraduate at VJTI Mumbai and SRA Core Member. Passionate about Computer Architecture, Reinforcement Learning, and Compilers." />
+  <meta name="description" content="Hindraj Mali - Electrical Engineering undergraduate at VJTI Mumbai, SRA Core Member. Researching Computer Architecture, Reinforcement Learning, and Compilers." />
   <meta name="author" content="Hindraj Mali" />
-  <meta property="og:title" content="Hindraj Mali | Portfolio" />
-  <meta property="og:description" content="Electrical Engineering @ VJTI, SRA Core Member. Computer Architecture, RL, Compilers, and Music." />
+  <meta property="og:title" content="Hindraj Mali | Electrical Engineering @ VJTI Mumbai" />
+  <meta property="og:description" content="Undergraduate Researcher, SRA Core Member. Exploring Computer Architecture, Reinforcement Learning, and Compilers." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hindraj123.github.io" />
 
-  <title>Hindraj Mali | Engineering & Research Portfolio</title>
+  <title>Hindraj Mali | Portfolio & Research</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bluish-white-body">
-  <!-- Subtle Ambient Atmospheric Glows -->
-  <div class="mesh-bg">
-    <div class="mesh-gradient mesh-1"></div>
-    <div class="mesh-gradient mesh-2"></div>
-    <div class="mesh-gradient mesh-3"></div>
-  </div>
-
-  <!-- Container for Floating Swara Particles (Sa Re Ga Ma...) -->
-  <div id="swaraParticleContainer" class="swara-container" aria-hidden="true"></div>
-
-  <!-- Interactive Black Flute with Peacock Feather Dock -->
-  <aside class="flute-dock" id="fluteDock" aria-label="Black Flute with Peacock Feather">
-    <div class="flute-controls">
-      <button id="soundToggleBtn" class="sound-toggle-btn" title="Toggle Flute Swara Notes Sound">
-        <span class="sound-icon" id="soundIcon">🔇</span>
-        <span class="sound-label">Flute Sound: <b id="soundStatusText">Off</b></span>
-      </button>
-      <div class="current-swara-badge" id="currentSwaraDisplay">सा • Sa</div>
-    </div>
-
-    <!-- Black Flute SVG with Peacock Feather -->
-    <div class="flute-assembly">
-      <svg class="black-flute-svg" viewBox="0 0 110 580" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <!-- Flute Tube Gradients -->
-          <linearGradient id="fluteEbony" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#0a0c10" />
-            <stop offset="35%" stop-color="#2a3240" />
-            <stop offset="70%" stop-color="#141821" />
-            <stop offset="100%" stop-color="#07080a" />
-          </linearGradient>
-
-          <!-- Gold Bindings (Dhaaga) -->
-          <linearGradient id="goldThread" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#b45309" />
-            <stop offset="50%" stop-color="#f59e0b" />
-            <stop offset="100%" stop-color="#d97706" />
-          </linearGradient>
-
-          <!-- Peacock Feather Gradients -->
-          <linearGradient id="featherStemGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#d97706" />
-            <stop offset="100%" stop-color="#0284c7" />
-          </linearGradient>
-          <radialGradient id="peacockEye" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0f172a" />
-            <stop offset="35%" stop-color="#0284c7" />
-            <stop offset="65%" stop-color="#10b981" />
-            <stop offset="85%" stop-color="#f59e0b" />
-            <stop offset="100%" stop-color="transparent" />
-          </radialGradient>
-        </defs>
-
-        <!-- Peacock Feather (Mor Pankh) attached gracefully to headjoint -->
-        <g class="peacock-feather" transform="translate(18, 12)">
-          <!-- Feather Quill / Shaft -->
-          <path d="M 45 95 C 40 60, 20 30, -5 5" stroke="url(#featherStemGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
-          
-          <!-- Outer Feather Barbs (Iridescent Shimmers) -->
-          <path d="M -5 5 C 10 -10, 35 -5, 42 18 C 50 40, 40 65, 30 85 Z" fill="#0ea5e9" opacity="0.35" />
-          <path d="M -2 8 C 8 -2, 28 2, 35 22 C 40 38, 35 58, 28 75 Z" fill="#10b981" opacity="0.45" />
-
-          <!-- Peacock Eye (Mor Pankh Eyelet) -->
-          <ellipse cx="14" cy="18" rx="16" ry="22" transform="rotate(-25 14 18)" fill="url(#peacockEye)" />
-          <!-- Inner Iris Glow -->
-          <ellipse cx="14" cy="18" rx="7" ry="11" transform="rotate(-25 14 18)" fill="#0369a1" />
-          <ellipse cx="14" cy="18" rx="4" ry="6" transform="rotate(-25 14 18)" fill="#090d16" />
-          <circle cx="15.5" cy="16" r="1.5" fill="#38bdf8" />
-        </g>
-
-        <!-- Flute Tube Shadow -->
-        <rect x="52" y="22" width="26" height="526" rx="13" fill="#000" opacity="0.12" filter="blur(6px)" />
-
-        <!-- Main Matte Black Flute Body -->
-        <rect x="53" y="18" width="24" height="532" rx="12" fill="url(#fluteEbony)" stroke="#334155" stroke-width="1.5" />
-
-        <!-- Top Cork & Gold Binding -->
-        <path d="M53 28 C53 22 77 22 77 28 Z" fill="#0b0e14" />
-        <rect x="52.5" y="34" width="25" height="14" rx="1" fill="url(#goldThread)" />
-        <line x1="53" y1="38" x2="77" y2="38" stroke="#78350f" stroke-width="0.8" />
-        <line x1="53" y1="42" x2="77" y2="42" stroke="#78350f" stroke-width="0.8" />
-
-        <!-- Embouchure (Blow Hole) - Emits Sa -->
-        <circle id="blowHole" cx="65" cy="80" r="5.5" fill="#040609" stroke="#475569" stroke-width="1.5" />
-
-        <!-- Mid Gold Thread Ring -->
-        <rect x="52.5" y="130" width="25" height="8" rx="1" fill="url(#goldThread)" />
-
-        <!-- 7 Tone Holes (Swara Holes) -->
-        <!-- Re Hole -->
-        <g id="holeRe" class="flute-hole" data-swara="रे" data-swara-en="Re" data-freq="293.66">
-          <circle cx="65" cy="190" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- Ga Hole -->
-        <g id="holeGa" class="flute-hole" data-swara="ग" data-swara-en="Ga" data-freq="329.63">
-          <circle cx="65" cy="235" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- Ma Hole -->
-        <g id="holeMa" class="flute-hole" data-swara="म" data-swara-en="Ma" data-freq="349.23">
-          <circle cx="65" cy="280" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- Pa Hole -->
-        <g id="holePa" class="flute-hole" data-swara="प" data-swara-en="Pa" data-freq="392.00">
-          <circle cx="65" cy="330" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- Dha Hole -->
-        <g id="holeDha" class="flute-hole" data-swara="ध" data-swara-en="Dha" data-freq="440.00">
-          <circle cx="65" cy="380" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- Ni Hole -->
-        <g id="holeNi" class="flute-hole" data-swara="नि" data-swara-en="Ni" data-freq="493.88">
-          <circle cx="65" cy="430" r="4.8" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-        <!-- High Sa Hole -->
-        <g id="holeSaHigh" class="flute-hole" data-swara="सां" data-swara-en="Sa'" data-freq="523.25">
-          <circle cx="65" cy="475" r="4.2" fill="#05070a" stroke="#64748b" stroke-width="1.2" />
-        </g>
-
-        <!-- Bottom Gold Binding -->
-        <rect x="52.5" y="505" width="25" height="14" rx="1" fill="url(#goldThread)" />
-        <line x1="53" y1="509" x2="77" y2="509" stroke="#78350f" stroke-width="0.8" />
-        <line x1="53" y1="513" x2="77" y2="513" stroke="#78350f" stroke-width="0.8" />
-
-        <!-- Open Foot End -->
-        <ellipse cx="65" cy="550" rx="12" ry="3.5" fill="#080a0f" stroke="#334155" stroke-width="1" />
-      </svg>
-      <div class="scroll-instruction">Scroll down to release notes &darr;</div>
-    </div>
-  </aside>
-
-  <!-- Navbar -->
-  <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="#home" class="logo">
-        <span class="logo-accent">H</span>indraj Mali
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-name">Hindraj Mali</span>
+        <span class="brand-tag">VJTI Mumbai • SRA</span>
       </a>
 
-      <nav class="nav-menu" id="nav-menu">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#passions" class="nav-link">Interests</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Project (Waddle)</a></li>
-          <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#interests" class="nav-item">Interests</a>
+        <a href="#waddle" class="nav-item">Waddle</a>
+        <a href="#projects" class="nav-item">Code</a>
+        <a href="#contact" class="nav-item">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" title="GitHub Profile">
-          <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <svg id="themeIconSun" class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" class="theme-icon hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
-          <span>hindraj123</span>
+          <span>GitHub</span>
         </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Page Main Content -->
-  <main class="page-main">
+  <main>
     <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="container hero-container">
-        <div class="hero-text-col">
-          <div class="status-pill">
-            <span class="pulse-dot"></span>
-            <span>Second-Year Electrical Engineering @ VJTI, Mumbai</span>
+    <section class="hero-section" id="top">
+      <div class="container hero-grid">
+        <div class="hero-bio">
+          <div class="affiliation-badge">
+            <span class="status-indicator"></span>
+            <span>Electrical Engineering Undergraduate @ VJTI Mumbai</span>
           </div>
 
-          <h1 class="hero-title">
-            Hi, I'm <span class="hero-name-highlight">Hindraj Mali</span>
-          </h1>
-
-          <p class="hero-tagline">
-            Core member of the <strong>Society of Robotics and Automation (SRA)</strong>. Passionate about <strong>Computer Architecture</strong>, <strong>Reinforcement Learning</strong>, and <strong>Compilers</strong>.
+          <h1 class="hero-name">Hindraj Mali</h1>
+          
+          <p class="hero-headline">
+            Core Member at <strong>Society of Robotics and Automation (SRA)</strong>. Passionate about <strong>Computer Architecture</strong>, <strong>Reinforcement Learning</strong>, and <strong>Compilers</strong>.
           </p>
 
           <p class="hero-subtext">
-            Exploring how hardware and software integrate to power intelligent bipedal locomotion, high-throughput compute, and expressive systems.
+            I study how hardware and software work together—from low-level instruction set architectures and compiler transformations to training robust neural control policies for complex robotics locomotion.
           </p>
 
-          <div class="hero-btn-row">
-            <a href="#projects" class="btn btn-primary">
-              <span>Explore Featured Project (Waddle)</span>
+          <div class="hero-cta-group">
+            <a href="#waddle" class="btn btn-primary">
+              <span>Featured Project (Waddle)</span>
               <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
             </a>
-            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            <a href="mailto:hindrajmali8@gmail.com" class="btn btn-secondary">Get in Touch</a>
           </div>
 
-          <!-- Quick Connect Chips -->
-          <div class="social-quick-links">
-            <a href="https://www.linkedin.com/in/hindraj-mali-747763446/" target="_blank" rel="noopener noreferrer" class="social-chip">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <!-- Social Links Bar -->
+          <div class="hero-social-row">
+            <a href="https://www.linkedin.com/in/hindraj-mali-747763446/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               <span>LinkedIn</span>
             </a>
-            <a href="https://x.com/HpmaliB25" target="_blank" rel="noopener noreferrer" class="social-chip">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <a href="https://x.com/HpmaliB25" target="_blank" rel="noopener noreferrer" class="social-link" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               <span>@HpmaliB25</span>
             </a>
-            <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="social-chip">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
+            <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               <span>GitHub</span>
             </a>
-            <a href="mailto:hindrajmali8@gmail.com" class="social-chip">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-              <span>hindrajmali8@gmail.com</span>
+            <a href="mailto:hindrajmali8@gmail.com" class="social-link" title="Email">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <span>Email</span>
             </a>
           </div>
         </div>
 
-        <!-- Hero Photo Visual -->
-        <div class="hero-photo-col">
-          <div class="photo-card-wrap">
-            <div class="photo-frame">
-              <img 
-                src="WhatsApp Image 2026-11-15 at 18.08.43.jpeg" 
-                alt="Hindraj Mali playing flute" 
-                class="hindraj-photo"
-              />
-            </div>
-            <div class="photo-caption">
-              <span class="caption-icon">🎶</span>
-              <div>
-                <strong>Hindraj Mali</strong>
-                <p>Engineering & Classical Bansuri</p>
-              </div>
+        <!-- Profile Photo -->
+        <div class="hero-photo-wrap">
+          <div class="photo-card">
+            <img 
+              src="WhatsApp Image 2026-11-15 at 18.08.43.jpeg" 
+              alt="Hindraj Mali" 
+              class="profile-img"
+            />
+            <div class="photo-meta">
+              <span class="meta-name">Hindraj Mali</span>
+              <span class="meta-role">EE @ VJTI | SRA VJTI</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about-section" id="about">
+    <!-- About & Education Section -->
+    <section class="section" id="about">
       <div class="container">
-        <div class="section-badge">Background & Affiliations</div>
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-heading">About Me</h2>
 
-        <div class="card-glass about-card-content">
-          <p class="about-p-lead">
-            Hi, I'm <strong>Hindraj Mali</strong>, a second-year Electrical Engineering undergraduate at <strong>Veermata Jijabai Technological Institute (VJTI), Mumbai</strong>, and a core member of the <strong>Society of Robotics and Automation (SRA)</strong>.
+        <div class="content-box">
+          <p class="lead-text">
+            I am Hindraj Mali, currently in my second year pursuing a Bachelor of Technology in Electrical Engineering at <strong>Veermata Jijabai Technological Institute (VJTI), Mumbai</strong>. As a core member of the <strong>Society of Robotics and Automation (SRA)</strong>, I collaborate with fellow engineers to design, build, and simulate intelligent robotic systems.
           </p>
           <p>
-            My engineering journey is defined by a passion for understanding how hardware and software work seamlessly together. From designing low-level instruction pipelines to training reinforcement learning agents for complex robotic locomotion, I look to build robust, mathematically sound, and scalable technologies.
+            My technical focus centers on the synergistic interaction between low-level computing architectures and algorithmic artificial intelligence. I am deeply interested in exploring how customized compute pipelines, instruction set designs, and optimizing compilers can accelerate learning algorithms and enable responsive, real-time autonomous robotics.
           </p>
 
-          <div class="affiliations-row">
-            <div class="aff-item">
-              <span class="aff-icon">🏛️</span>
-              <div>
-                <h4>VJTI Mumbai</h4>
-                <p>Electrical Engineering Undergraduate</p>
-              </div>
+          <div class="cards-grid affiliations-grid">
+            <div class="card mini-card">
+              <div class="card-tag">University</div>
+              <h3 class="card-title">VJTI, Mumbai</h3>
+              <p class="card-desc">B.Tech in Electrical Engineering (2nd Year Undergraduate)</p>
             </div>
-            <div class="aff-item">
-              <span class="aff-icon">🤖</span>
-              <div>
-                <h4>SRA VJTI</h4>
-                <p>Core Member, Society of Robotics and Automation</p>
-              </div>
+
+            <div class="card mini-card">
+              <div class="card-tag">Student Organization</div>
+              <h3 class="card-title">SRA VJTI</h3>
+              <p class="card-desc">Core Member, Society of Robotics and Automation</p>
             </div>
-            <div class="aff-item">
-              <span class="aff-icon">🪈</span>
-              <div>
-                <h4>Classical Bansuri</h4>
-                <p>Flute Artist & Musical Explorer</p>
-              </div>
+
+            <div class="card mini-card">
+              <div class="card-tag">Creative Discipline</div>
+              <h3 class="card-title">Classical Bansuri</h3>
+              <p class="card-desc">Practitioner of Indian classical flute music</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Core Technical Passions -->
-    <section class="section passions-section" id="passions">
+    <!-- Core Research & Technical Interests -->
+    <section class="section" id="interests">
       <div class="container">
-        <div class="section-badge">Core Domains</div>
-        <h2 class="section-title">What Drives My Engineering</h2>
-        <p class="section-subtitle">"Understanding how hardware and software work together."</p>
+        <h2 class="section-heading">Core Interests</h2>
+        <p class="section-lead">"Understanding how hardware and software work together."</p>
 
-        <div class="passions-grid">
-          <!-- Passion 1 -->
-          <div class="card-glass passion-card">
-            <div class="passion-header">
-              <span class="p-icon">⚡</span>
-              <h3>Computer Architecture</h3>
+        <div class="cards-grid interests-grid">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="interest-header">
+              <span class="interest-num">01</span>
+              <h3 class="card-title">Computer Architecture</h3>
             </div>
-            <p>
-              Investigating microarchitecture, pipelined datapath design, cache hierarchies, branch predictors, and instruction set architectures (RISC-V). Focused on squeezing maximal performance and efficiency out of silicon.
+            <p class="card-desc">
+              Investigating microarchitecture, pipeline hazards, branch prediction, memory hierarchies, and ISA design (such as RISC-V). Focused on how instruction-level parallelism and hardware accelerators enhance throughput.
             </p>
-            <div class="tag-row">
-              <span>RISC-V</span>
-              <span>Pipelining</span>
-              <span>Memory Subsystems</span>
-              <span>Hardware/Software Interface</span>
+            <div class="tags-group">
+              <span class="tag">RISC-V</span>
+              <span class="tag">Pipelined Datapaths</span>
+              <span class="tag">Memory Hierarchy</span>
+              <span class="tag">Hardware/Software Interface</span>
             </div>
           </div>
 
-          <!-- Passion 2 -->
-          <div class="card-glass passion-card">
-            <div class="passion-header">
-              <span class="p-icon">🧠</span>
-              <h3>Reinforcement Learning</h3>
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="interest-header">
+              <span class="interest-num">02</span>
+              <h3 class="card-title">Reinforcement Learning</h3>
             </div>
-            <p>
-              Implementing and refining deep RL algorithms (PPO, FlashSAC, SAC) for real-world robotics control, custom reward formulation, domain randomization, and bipedal gait stabilization.
+            <p class="card-desc">
+              Developing and benchmarking deep reinforcement learning algorithms for robotics locomotion and dynamic control. Applying reward shaping and domain randomization to achieve robust sim-to-real transfer.
             </p>
-            <div class="tag-row">
-              <span>PPO</span>
-              <span>FlashSAC</span>
-              <span>Reward Design</span>
-              <span>Bipedal Gait</span>
-              <span>Physics Sim</span>
+            <div class="tags-group">
+              <span class="tag">PPO</span>
+              <span class="tag">FlashSAC / SAC</span>
+              <span class="tag">Bipedal Locomotion</span>
+              <span class="tag">Reward Engineering</span>
+              <span class="tag">Physics Simulation</span>
             </div>
           </div>
 
-          <!-- Passion 3 -->
-          <div class="card-glass passion-card">
-            <div class="passion-header">
-              <span class="p-icon">⚙️</span>
-              <h3>Compilers</h3>
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="interest-header">
+              <span class="interest-num">03</span>
+              <h3 class="card-title">Compilers</h3>
             </div>
-            <p>
-              Analyzing intermediate representations (IR), control flow graphs, compiler optimization passes, register allocation algorithms, and machine code generation.
+            <p class="card-desc">
+              Analyzing how high-level programmatic logic is transformed into optimized machine code through intermediate representations (IR), control flow graphs, loop optimizations, and register allocation.
             </p>
-            <div class="tag-row">
-              <span>LLVM</span>
-              <span>IR Optimization</span>
-              <span>ASTs</span>
-              <span>Code Generation</span>
+            <div class="tags-group">
+              <span class="tag">LLVM</span>
+              <span class="tag">Intermediate Representation</span>
+              <span class="tag">AST & Parsing</span>
+              <span class="tag">Optimization Passes</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Project: Waddle -->
-    <section class="section project-section" id="projects">
+    <!-- Featured Engineering Project: Waddle -->
+    <section class="section" id="waddle">
       <div class="container">
-        <div class="section-badge">Featured Project</div>
-        <h2 class="section-title">Waddle — Bipedal Locomotion</h2>
-        <p class="section-subtitle">
-          Reinforcement Learning on the 17-DoF Open Duck Mini v2 Robot
-        </p>
+        <h2 class="section-heading">Featured Project</h2>
 
-        <div class="card-glass project-showcase-card">
-          <div class="project-info">
-            <span class="proj-badge">Robotics & RL Research</span>
-            <h3>Bipedal Locomotion with PPO & FlashSAC</h3>
+        <div class="project-card-primary">
+          <div class="project-header">
+            <div>
+              <span class="badge badge-accent">Reinforcement Learning & Robotics</span>
+              <h3 class="project-main-title">Waddle</h3>
+              <p class="project-subtitle">Bipedal Locomotion on the 17-DoF Open Duck Mini v2 Robot</p>
+            </div>
+            <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <span>GitHub Repo</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="project-body">
             <p>
-              <strong>Waddle</strong> focuses on achieving robust bipedal walking policies on the <strong>17-Degrees-of-Freedom (17-DoF) Open Duck Mini v2</strong> robotic platform.
+              <strong>Waddle</strong> investigates bipedal locomotion control using model-free reinforcement learning on the <strong>17-Degrees-of-Freedom (17-DoF) Open Duck Mini v2</strong> robotic platform. The project systematically explores training stable, natural walking policies in simulation.
             </p>
 
-            <ul class="project-bullets">
-              <li>
-                <strong>Algorithm Benchmarking:</strong> Implements and compares <strong>Proximal Policy Optimization (PPO)</strong> and <strong>FlashSAC</strong> to train stable walking policies in simulation.
-              </li>
-              <li>
-                <strong>Custom Reward Design:</strong> Formulated nuanced reward objectives penalizing excessive joint torques and foot dragging while incentivizing forward progression and upright torso stabilization.
-              </li>
-              <li>
-                <strong>Gait Stability & Robustness:</strong> Evaluated gait adaptability under varied terrain friction and lateral force disturbances.
-              </li>
-            </ul>
+            <div class="project-key-points">
+              <div class="point-item">
+                <h4>Algorithm Comparison</h4>
+                <p>
+                  Implements and compares <strong>Proximal Policy Optimization (PPO)</strong> and <strong>FlashSAC</strong> to benchmark sample efficiency, policy stability, and convergence characteristics under continuous action spaces.
+                </p>
+              </div>
 
-            <div class="tech-stack-row">
-              <span>Reinforcement Learning</span>
-              <span>PPO</span>
-              <span>FlashSAC</span>
-              <span>17-DoF Kinematics</span>
-              <span>Simulation</span>
+              <div class="point-item">
+                <h4>Custom Reward Formulation</h4>
+                <p>
+                  Engineered multi-component reward functions that penalize joint torque spikes, torso tilt, and foot dragging while incentivizing stable linear velocity tracking and periodic foot contact cycles.
+                </p>
+              </div>
+
+              <div class="point-item">
+                <h4>Gait Stability & Robustness</h4>
+                <p>
+                  Applied physics randomization (ground friction, external lateral push disturbances, link mass distribution) to ensure locomotion policies maintain balance and avoid catastrophic falls.
+                </p>
+              </div>
             </div>
 
-            <div class="proj-btn-row">
-              <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                <span>View on GitHub</span>
-                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-              </a>
+            <div class="project-tags-list">
+              <span class="tag">Reinforcement Learning</span>
+              <span class="tag">PPO</span>
+              <span class="tag">FlashSAC</span>
+              <span class="tag">17-DoF Open Duck Mini v2</span>
+              <span class="tag">Python</span>
+              <span class="tag">Physics Simulation</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GitHub Repositories -->
-    <section class="section github-section" id="github">
+    <!-- Beyond Engineering: Music -->
+    <section class="section" id="music">
       <div class="container">
-        <div class="section-badge">Open Source</div>
-        <div class="section-header-flex">
+        <h2 class="section-heading">Beyond the Terminal</h2>
+
+        <div class="card music-card">
+          <div class="music-card-content">
+            <h3 class="card-title">Classical Bansuri (Flute)</h3>
+            <p>
+              Outside of computer systems and engineering coursework, I am an active student and practitioner of the <strong>Indian classical bamboo flute (Bansuri)</strong>.
+            </p>
+            <p>
+              Classical music and computer systems share an inspiring parallel: both are rooted in rigorous foundational principles—timing, harmonic structure, and mathematical precision—while providing boundless room for creative exploration and improvisation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live GitHub Repositories -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header-row">
           <div>
-            <h2 class="section-title">GitHub Repositories</h2>
-            <p class="section-subtitle">Live stream of public repositories from @hindraj123.</p>
+            <h2 class="section-heading">Open Source & Code</h2>
+            <p class="section-lead">Live repositories synced directly from <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer">@hindraj123</a>.</p>
           </div>
           <a href="https://github.com/hindraj123?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
             <span>View All on GitHub &rarr;</span>
           </a>
         </div>
 
-        <div id="githubReposList" class="repos-grid">
-          <div class="repo-loading-card card-glass">
+        <div id="repoList" class="repo-grid">
+          <div class="loading-state">
             <div class="spinner"></div>
-            <span>Fetching repositories from github.com/hindraj123...</span>
+            <span>Fetching repositories from GitHub...</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact & Connect -->
-    <section class="section contact-section" id="contact">
+    <!-- Contact Section -->
+    <section class="section" id="contact">
       <div class="container">
-        <div class="section-badge">Get in Touch</div>
-        <h2 class="section-title">Connect With Me</h2>
-        <p class="section-subtitle">Open for robotics, hardware-software co-design, and research discussions.</p>
+        <h2 class="section-heading">Connect</h2>
+        <p class="section-lead">Always open to discussions on computer architecture, robotics research, and engineering collaborations.</p>
 
-        <div class="contact-card-grid">
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/hindraj-mali-747763446/" target="_blank" rel="noopener noreferrer" class="card-glass contact-link-card">
-            <div class="c-icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <div class="contact-links-grid">
+          <a href="mailto:hindrajmali8@gmail.com" class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             </div>
-            <div class="c-text">
-              <span class="c-label">LinkedIn</span>
-              <span class="c-val">hindraj-mali-747763446</span>
+            <div>
+              <span class="contact-card-label">Email</span>
+              <span class="contact-card-val">hindrajmali8@gmail.com</span>
             </div>
-            <span class="c-arrow">&rarr;</span>
           </a>
 
-          <!-- X -->
-          <a href="https://x.com/HpmaliB25" target="_blank" rel="noopener noreferrer" class="card-glass contact-link-card">
-            <div class="c-icon">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://www.linkedin.com/in/hindraj-mali-747763446/" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </div>
-            <div class="c-text">
-              <span class="c-label">X / Twitter</span>
-              <span class="c-val">@HpmaliB25</span>
+            <div>
+              <span class="contact-card-label">LinkedIn</span>
+              <span class="contact-card-val">hindraj-mali-747763446</span>
             </div>
-            <span class="c-arrow">&rarr;</span>
           </a>
 
-          <!-- GitHub -->
-          <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="card-glass contact-link-card">
-            <div class="c-icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <a href="https://x.com/HpmaliB25" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </div>
-            <div class="c-text">
-              <span class="c-label">GitHub</span>
-              <span class="c-val">hindraj123</span>
+            <div>
+              <span class="contact-card-label">X / Twitter</span>
+              <span class="contact-card-val">@HpmaliB25</span>
             </div>
-            <span class="c-arrow">&rarr;</span>
           </a>
 
-          <!-- Gmail -->
-          <a href="mailto:hindrajmali8@gmail.com" class="card-glass contact-link-card">
-            <div class="c-icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
-            <div class="c-text">
-              <span class="c-label">Gmail</span>
-              <span class="c-val">hindrajmali8@gmail.com</span>
+            <div>
+              <span class="contact-card-label">GitHub</span>
+              <span class="contact-card-val">hindraj123</span>
             </div>
-            <span class="c-arrow">&rarr;</span>
           </a>
         </div>
       </div>
@@ -497,21 +390,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <p class="footer-copy">
-          &copy; <span id="currentYear"></span> <strong>Hindraj Mali</strong>. Hosted on GitHub Pages.
-        </p>
-        <p class="footer-sub">
-          Second-year Electrical Engineering @ VJTI Mumbai | SRA Core Member
-        </p>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p class="footer-title">Hindraj Mali</p>
+        <p class="footer-sub">Electrical Engineering @ VJTI Mumbai • Core Member, SRA VJTI</p>
       </div>
-      <div class="footer-right">
-        <div class="swara-legend">
-          <span>सा</span> • <span>रे</span> • <span>ग</span> • <span>म</span> • <span>प</span> • <span>ध</span> • <span>नि</span>
-        </div>
-      </div>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> Hindraj Mali. Hosted via GitHub Pages.</p>
     </div>
   </footer>
 
