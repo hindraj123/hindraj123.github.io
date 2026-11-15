@@ -12,103 +12,131 @@
 
   <title>Hindraj Mali | Engineering & Research Portfolio</title>
 
-  <!-- Google Fonts: Inter, JetBrains Mono, and Cormorant Garamond for classical swaras -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="light-blue-theme">
-  <!-- Aesthetic Background Layer: Light Bluish Canvas + Feather & Flute Ambient Vector -->
+  <!-- Bright, Vivid Light-Bluish Canvas with Prominent Peacock Feather & Flute -->
   <div class="artistic-bg-wrapper" aria-hidden="true">
     <div class="sky-tint tint-1"></div>
     <div class="sky-tint tint-2"></div>
     
-    <!-- Delicate Stylized Flute with Peacock Feather Watermark / Canvas Vector -->
+    <!-- Prominent, Colorful Peacock Feather & Black Flute Art -->
     <div class="flute-feather-artwork" id="fluteAnchor">
-      <svg class="artwork-svg" viewBox="0 0 500 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="artwork-svg" viewBox="0 0 420 640" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="featherStem" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
-            <stop offset="50%" stop-color="#10b981" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.7" />
+          <!-- Feather Gradient Fill -->
+          <linearGradient id="featherStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0284c7" />
+            <stop offset="50%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#f59e0b" />
           </linearGradient>
 
-          <radialGradient id="peacockEyeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0f172a" />
-            <stop offset="35%" stop-color="#0284c7" />
-            <stop offset="65%" stop-color="#10b981" />
-            <stop offset="85%" stop-color="#d97706" />
+          <!-- Peacock Eye Glow: Radiant & Saturated -->
+          <radialGradient id="vividPeacockEye" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#0b1329" />
+            <stop offset="30%" stop-color="#0284c7" />
+            <stop offset="55%" stop-color="#059669" />
+            <stop offset="78%" stop-color="#f59e0b" />
+            <stop offset="95%" stop-color="#38bdf8" stop-opacity="0.8" />
             <stop offset="100%" stop-color="transparent" />
           </radialGradient>
 
-          <linearGradient id="fluteEbonyWood" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1e293b" />
-            <stop offset="50%" stop-color="#0f172a" />
-            <stop offset="100%" stop-color="#020617" />
+          <!-- Flute Matte Black Bamboo with Shading -->
+          <linearGradient id="fluteBlackShine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#090d16" />
+            <stop offset="35%" stop-color="#222b3d" />
+            <stop offset="70%" stop-color="#121824" />
+            <stop offset="100%" stop-color="#05080e" />
           </linearGradient>
 
-          <linearGradient id="goldBinding" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#d97706" />
+          <!-- Golden Thread Rings (Dhaaga) -->
+          <linearGradient id="goldRingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#b45309" />
             <stop offset="50%" stop-color="#fef08a" />
-            <stop offset="100%" stop-color="#b45309" />
+            <stop offset="100%" stop-color="#d97706" />
           </linearGradient>
         </defs>
 
-        <!-- PEACOCK FEATHER (MOR PANKH) -->
-        <g class="peacock-feather-art" transform="translate(180, 40) rotate(-18)">
-          <!-- Feather Spine / Quill -->
-          <path d="M 120 320 C 100 220, 50 120, -10 10" stroke="url(#featherStem)" stroke-width="3" stroke-linecap="round" />
+        <!-- Glow under feather and flute -->
+        <circle cx="210" cy="130" r="140" fill="#38bdf8" opacity="0.22" filter="blur(35px)" />
+        <ellipse cx="200" cy="340" rx="90" ry="240" fill="#bae6fd" opacity="0.3" filter="blur(45px)" />
 
-          <!-- Outer Vane Filaments / Barbs -->
-          <path d="M -10 10 C 25 -25, 75 -15, 95 30 C 115 80, 90 140, 60 200 Z" fill="#38bdf8" fill-opacity="0.25" />
-          <path d="M -5 15 C 20 -15, 60 -5, 80 35 C 95 75, 80 130, 50 180 Z" fill="#10b981" fill-opacity="0.32" />
-          <path d="M 0 20 C 18 -5, 48 5, 65 40 C 75 75, 65 120, 40 160 Z" fill="#0284c7" fill-opacity="0.38" />
+        <!-- 1. VIBRANT PEACOCK FEATHER (MOR PANKH) -->
+        <g class="peacock-feather-art" transform="translate(190, 45) rotate(-16)">
+          <!-- Feather Quill / Shaft -->
+          <path d="M 110 300 C 90 200, 45 105, -15 0" stroke="url(#featherStemGrad)" stroke-width="3.5" stroke-linecap="round" />
 
-          <!-- Peacock Eye (Mor Pankh Core) -->
-          <ellipse cx="32" cy="42" rx="28" ry="38" transform="rotate(-20 32 42)" fill="url(#peacockEyeGlow)" />
-          <!-- Inner Sapphire & Indigo Eye -->
-          <ellipse cx="32" cy="42" rx="14" ry="20" transform="rotate(-20 32 42)" fill="#0369a1" />
-          <ellipse cx="32" cy="42" rx="7" ry="10" transform="rotate(-20 32 42)" fill="#0a0f1d" />
-          <circle cx="34" cy="39" r="2.5" fill="#bae6fd" />
+          <!-- Outer Vane Filaments / Barbs (Vibrant & Rich) -->
+          <path d="M -15 0 C 25 -30, 80 -15, 100 35 C 120 90, 95 150, 60 220 Z" fill="#38bdf8" fill-opacity="0.55" />
+          <path d="M -10 5 C 20 -20, 65 -5, 85 40 C 100 85, 85 140, 50 195 Z" fill="#10b981" fill-opacity="0.65" />
+          <path d="M -5 10 C 15 -10, 50 5, 70 45 C 80 80, 70 130, 40 175 Z" fill="#0284c7" fill-opacity="0.75" />
+
+          <!-- Individual Feather Hairs (Details) -->
+          <line x1="20" y1="20" x2="65" y2="-5" stroke="#38bdf8" stroke-width="1.2" opacity="0.8" />
+          <line x1="30" y1="40" x2="85" y2="15" stroke="#10b981" stroke-width="1.2" opacity="0.8" />
+          <line x1="40" y1="70" x2="95" y2="45" stroke="#38bdf8" stroke-width="1.2" opacity="0.8" />
+          <line x1="45" y1="100" x2="105" y2="80" stroke="#f59e0b" stroke-width="1.2" opacity="0.8" />
+          <line x1="-5" y1="10" x2="-35" y2="-10" stroke="#38bdf8" stroke-width="1.2" opacity="0.8" />
+          <line x1="5" y1="35" x2="-25" y2="15" stroke="#10b981" stroke-width="1.2" opacity="0.8" />
+
+          <!-- Peacock Eye (Mor Pankh Center) -->
+          <ellipse cx="28" cy="38" rx="30" ry="42" transform="rotate(-18 28 38)" fill="url(#vividPeacockEye)" />
+          <!-- Inner Sapphire Core -->
+          <ellipse cx="28" cy="38" rx="16" ry="22" transform="rotate(-18 28 38)" fill="#0284c7" />
+          <ellipse cx="28" cy="38" rx="8" ry="12" transform="rotate(-18 28 38)" fill="#070c18" />
+          <!-- Eyelet Sparkle -->
+          <circle cx="31" cy="34" r="3" fill="#ffffff" />
         </g>
 
-        <!-- ELEGANT TILTED BANSURI (FLUTE) -->
-        <g class="bansuri-flute-art" transform="translate(160, 160) rotate(26)">
+        <!-- 2. PROMINENT BLACK FLUTE (BANSURI) -->
+        <g class="bansuri-flute-art" transform="translate(170, 140) rotate(24)">
           <!-- Flute Tube Drop Shadow -->
-          <rect x="18" y="10" width="22" height="460" rx="11" fill="#0f172a" opacity="0.1" filter="blur(8px)" />
+          <rect x="18" y="10" width="26" height="470" rx="13" fill="#0f172a" opacity="0.18" filter="blur(8px)" />
           
-          <!-- Flute Matte Black / Ebony Bamboo Body -->
-          <rect x="20" y="8" width="18" height="460" rx="9" fill="url(#fluteEbonyWood)" stroke="#334155" stroke-width="1.2" />
+          <!-- Flute Ebony Body -->
+          <rect x="20" y="8" width="22" height="470" rx="11" fill="url(#fluteBlackShine)" stroke="#475569" stroke-width="1.5" />
 
-          <!-- Gold Bindings (Dhaaga) Top -->
-          <rect x="19.5" y="24" width="19" height="10" rx="1" fill="url(#goldBinding)" />
-          <!-- Embouchure Blow Hole (Where Sa emits) -->
-          <circle id="artBlowHole" cx="29" cy="58" r="4.5" fill="#030712" stroke="#64748b" stroke-width="1.2" />
-          <!-- Subtle glow around blowhole -->
-          <circle cx="29" cy="58" r="7.5" stroke="#38bdf8" stroke-width="1" opacity="0.5" />
+          <!-- Top Cork Cap & Gold Ring -->
+          <path d="M20 18 C20 12 42 12 42 18 Z" fill="#05080e" />
+          <rect x="19.5" y="24" width="23" height="12" rx="1" fill="url(#goldRingGrad)" />
+          <line x1="20" y1="28" x2="42" y2="28" stroke="#78350f" stroke-width="0.8" />
+          <line x1="20" y1="32" x2="42" y2="32" stroke="#78350f" stroke-width="0.8" />
 
-          <!-- Middle Gold Ring -->
-          <rect x="19.5" y="110" width="19" height="6" rx="1" fill="url(#goldBinding)" />
+          <!-- Embouchure (Blow Hole) - Emits Sa -->
+          <circle id="artBlowHole" cx="31" cy="62" r="5" fill="#020617" stroke="#94a3b8" stroke-width="1.5" />
+          <circle cx="31" cy="62" r="8" stroke="#38bdf8" stroke-width="1.2" opacity="0.75" />
+
+          <!-- Mid Gold Ring -->
+          <rect x="19.5" y="115" width="23" height="8" rx="1" fill="url(#goldRingGrad)" />
 
           <!-- 7 Classical Tone Holes -->
-          <circle id="artHoleRe" cx="29" cy="160" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
-          <circle id="artHoleGa" cx="29" cy="205" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
-          <circle id="artHoleMa" cx="29" cy="250" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
-          <circle id="artHolePa" cx="29" cy="300" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
-          <circle id="artHoleDha" cx="29" cy="350" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
-          <circle id="artHoleNi" cx="29" cy="400" r="3.8" fill="#030712" stroke="#64748b" stroke-width="1" />
+          <!-- Re Hole -->
+          <circle id="artHoleRe" cx="31" cy="170" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
+          <!-- Ga Hole -->
+          <circle id="artHoleGa" cx="31" cy="218" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
+          <!-- Ma Hole -->
+          <circle id="artHoleMa" cx="31" cy="265" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
+          <!-- Pa Hole -->
+          <circle id="artHolePa" cx="31" cy="318" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
+          <!-- Dha Hole -->
+          <circle id="artHoleDha" cx="31" cy="370" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
+          <!-- Ni Hole -->
+          <circle id="artHoleNi" cx="31" cy="420" r="4.2" fill="#020617" stroke="#94a3b8" stroke-width="1.2" />
 
           <!-- Bottom Gold Binding -->
-          <rect x="19.5" y="440" width="19" height="12" rx="1" fill="url(#goldBinding)" />
-          <ellipse cx="29" cy="468" rx="9" ry="3" fill="#020617" stroke="#475569" stroke-width="1" />
+          <rect x="19.5" y="455" width="23" height="14" rx="1" fill="url(#goldRingGrad)" />
+          <ellipse cx="31" cy="478" rx="11" ry="3.5" fill="#020617" stroke="#475569" stroke-width="1" />
         </g>
       </svg>
     </div>
   </div>
 
-  <!-- Interactive Ethereal Swara Particles Layer (Emits सा, रे, ग, म, प, ध, नि on scroll) -->
+  <!-- Interactive Swara Layer (Emits सा, रे, ग, म, प, ध, नि as you scroll) -->
   <div id="swaraLayer" class="swara-float-layer" aria-hidden="true"></div>
 
   <!-- Header / Navigation Bar -->
@@ -123,14 +151,12 @@
         <a href="#about" class="nav-item">About</a>
         <a href="#interests" class="nav-item">Interests</a>
         <a href="#waddle" class="nav-item">Waddle</a>
-        <a href="#projects" class="nav-item">Code</a>
-        <a href="#music" class="nav-item">Bansuri</a>
         <a href="#contact" class="nav-item">Contact</a>
       </nav>
 
       <div class="header-actions">
-        <!-- Gentle Swara Sound Toggle -->
-        <button id="swaraAudioToggle" class="swara-audio-btn" title="Toggle peaceful bansuri swara tones">
+        <!-- Peaceful Swara Sound Toggle -->
+        <button id="swaraAudioToggle" class="swara-audio-btn" title="Toggle bansuri acoustic swara tones">
           <span id="audioIcon">🔇</span>
           <span class="swara-status-txt">Swara Sound: <b id="audioStatusText">Off</b></span>
         </button>
@@ -197,7 +223,7 @@
             </a>
             <a href="mailto:hindrajmali8@gmail.com" class="social-link" title="Email">
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-              <span>hindrajmali8@gmail.com</span>
+              <span>Email</span>
             </a>
           </div>
         </div>
@@ -247,7 +273,7 @@
             </div>
 
             <div class="card mini-card">
-              <div class="card-tag">Musical Discipline</div>
+              <div class="card-tag">Art & Expression</div>
               <h3 class="card-title">Classical Bansuri</h3>
               <p class="card-desc">Practicing Indian classical bamboo flute artist</p>
             </div>
@@ -379,48 +405,6 @@
       </div>
     </section>
 
-    <!-- Beyond Engineering: Classical Bansuri & Music -->
-    <section class="section" id="music">
-      <div class="container">
-        <h2 class="section-heading">Beyond the Terminal</h2>
-
-        <div class="card music-card">
-          <div class="music-card-content">
-            <div class="music-icon-lead">🪈 🎶</div>
-            <h3 class="card-title">Classical Bansuri (Indian Bamboo Flute)</h3>
-            <p>
-              Alongside engineering and robotics research, I am a dedicated student and practitioner of the <strong>Indian classical Bansuri (bamboo flute)</strong>.
-            </p>
-            <p>
-              The discipline of Indian classical music resonates deeply with engineering: both are grounded in mathematical foundations—intonation, micro-rhythms (Taal), and acoustic harmonic ratios—while giving freedom to articulate expression, nuance, and continuous refinement.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live GitHub Repositories -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-header-row">
-          <div>
-            <h2 class="section-heading">Open Source & Code</h2>
-            <p class="section-lead">Repositories synced directly from <a href="https://github.com/hindraj123" target="_blank" rel="noopener noreferrer">@hindraj123</a>.</p>
-          </div>
-          <a href="https://github.com/hindraj123?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-            <span>View All on GitHub &rarr;</span>
-          </a>
-        </div>
-
-        <div id="repoList" class="repo-grid">
-          <div class="loading-state">
-            <div class="spinner"></div>
-            <span>Fetching repositories from GitHub...</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section" id="contact">
       <div class="container">
@@ -479,7 +463,7 @@
         <p class="footer-title">Hindraj Mali</p>
         <p class="footer-sub">Electrical Engineering @ VJTI Mumbai • Core Member, SRA VJTI</p>
       </div>
-      <p class="footer-copy">&copy; <span id="currentYear"></span> Hindraj Mali. Hosted on GitHub Pages.</p>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> Hindraj Mali. Hosted via GitHub Pages.</p>
     </div>
   </footer>
 
